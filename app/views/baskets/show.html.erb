@@ -1,0 +1,16 @@
+<% if notice %>
+  <div class="alert alert-success">
+    <p id="notice"><%= notice %></p>
+  </div>
+<% end %>
+  
+  <h2>Your Oloja Shopping Basket</h2>
+  <ul>
+    <% @basket.line_items.each do |item| %>
+      <li><%= item.product.title %></li>
+    <% end %>
+  </ul>
+<div>  
+<%= button_to 'Edit', edit_basket_path(@basket), class: 'btn btn-warning' %> |
+<%= button_to 'Back', baskets_path, class: 'btn btn-primary' %>
+</div>
