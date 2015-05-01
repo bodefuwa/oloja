@@ -1,4 +1,3 @@
-
 <% if notice %>
   <div class="alert alert-danger">
     <p id=notice><%= notice %></p>
@@ -16,7 +15,7 @@
   	     <%= sanitize(product.description) %>
   	     <div class="price_line">
   	       <span class="price"><%= number_to_currency(product.price) %></span>
-           <%=  button_to 'Add to Cart', line_items_path(product_id: product), class: 'btn btn-default' %>
+           <%=  button_to 'Add to Basket', line_items_path(product_id: product), remote: true, class: 'btn btn-default' %>
   	     </div> 
   	    </div>
   	   <% end %> 
