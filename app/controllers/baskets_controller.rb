@@ -1,6 +1,6 @@
 class BasketsController < ApplicationController
   before_action :set_basket, only: [:show, :edit, :update, :destroy]
-
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_basket
   # GET /baskets
   # GET /baskets.json
   def index
@@ -54,9 +54,10 @@ class BasketsController < ApplicationController
   # DELETE /baskets/1
   # DELETE /baskets/1.json
   def destroy
-    @basket.destroy
+    @basket.destroy if @basket.id == session[:basket_id]
+    session[:basket_id] = nil
     respond_to do |format|
-      format.html { redirect_to baskets_url, notice: 'Basket was successfully destroyed.' }
+      format.html { redirect_to shop_url, notice: 'Your basket is currently empty' }
       format.json { head :no_content }
     end
   end
@@ -70,5 +71,10 @@ class BasketsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def basket_params
       params[:basket]
+    end
+
+    def invalid_basket
+      logger.error "Attempt to access invalid basket #{params[:id]}"
+      redirect_to shop_url, notice: 'Invalid basket'
     end
 end

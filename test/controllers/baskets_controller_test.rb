@@ -41,9 +41,10 @@ class BasketsControllerTest < ActionController::TestCase
 
   test "should destroy basket" do
     assert_difference('Basket.count', -1) do
+      session[:cart_id] = @cart.id
       delete :destroy, id: @basket
     end
 
-    assert_redirected_to baskets_path
+    assert_redirected_to shop_path
   end
 end
