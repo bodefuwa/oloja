@@ -11,3 +11,10 @@ two:
   description: MyText
   image_url: MyString
   price: 9.99
+
+aso:
+  title: Ankara
+  description: High quality material unique print
+  image_url: ankara.jpg
+  price: 45.00
+  

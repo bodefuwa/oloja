@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Oloja</title>
+  <title>Oloja Online Shopping Center</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body class='<%= controller.controller_name %>'>
-  <%= yield %>
+  <%= render 'layouts/header' %>
+  <div class="row">
+  <div id="columns" class="col-md-3">
+    <%= render 'layouts/navbar' %>
+  </div>
+  <div id="main" class="col-md-9">
+      <div class="container">
+        <%= yield %>
+      </div>
+  </div>
+  </div>
 </body>
 </html>
