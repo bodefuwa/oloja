@@ -1,3 +1,5 @@
+$('#notice').hide();
+
 if ($('#basket tr').length == 1) { $('#basket').show('blind', 1000); }
 
 $('#basket').html("<%= escape_javascript render(@basket) %>");
