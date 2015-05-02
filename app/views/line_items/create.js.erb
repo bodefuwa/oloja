@@ -1,1 +1,4 @@
+if ($('#basket tr').length == 1) { $('#basket').show('blind', 1000); }
+
 $('#basket').html("<%= escape_javascript render(@basket) %>");
+$('#current_item').css({'background-color':'#88ff88'}).animate({'background-color':'$114411'}, 1000);

@@ -1,4 +1,7 @@
-<h2>Your Basket</h2>
+<% unless basket.line_items.empty? %>
+<div class="basket_title">
+  <h2>Your Basket</h2>
+</div>
 <table>
   <%= render(basket.line_items) %>
 
@@ -9,3 +12,4 @@
 </table>
 
 <%= button_to 'Empty basket', @basket, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+<% end %>

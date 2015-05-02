@@ -57,7 +57,7 @@ class BasketsController < ApplicationController
     @basket.destroy if @basket.id == session[:basket_id]
     session[:basket_id] = nil
     respond_to do |format|
-      format.html { redirect_to shop_url, notice: 'Your basket is currently empty' }
+      format.html { redirect_to shop_url }
       format.json { head :no_content }
     end
   end

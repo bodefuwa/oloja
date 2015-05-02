@@ -1,8 +1,10 @@
+
 <div id="side">
-  <div id="basket">
-    <%= render @basket %>
-  </div>
-  
+  <% if @basket %>
+    <%= hidden_div_if(@basket.line_items.empty?,  id: 'basket') do %>
+      <%= render @basket %>
+    <% end %>
+  <% end %>
       <ul>
         <li><%= link_to "Home", shop_path %></li>
         <li><%= link_to "Products", products_path %></li>
