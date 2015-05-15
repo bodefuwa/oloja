@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   controller :sessions do
     get 'login'  => :new
     post 'login' => :create
-    delelte 'logout' => :destroy
+    delete 'logout' => :destroy
   end
 
   get 'sessions/new'
@@ -23,5 +23,10 @@ Rails.application.routes.draw do
   	get :who_bought, on: :member
   end
   
-  root 'shop#index', as: 'shop'
+  scope '(:locale)' do
+    resources :orders
+    resources :line_items
+    resources :carts
+    root 'shop#index', as: 'shop', via: :all
+  end
 end

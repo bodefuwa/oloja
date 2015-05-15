@@ -1,6 +1,6 @@
 <% unless basket.line_items.empty? %>
 <div class="basket_title">
-  <h2>Your Basket</h2>
+  <h2><%= t('.title') %></h2>
 </div>
 <table>
   <%= render(basket.line_items) %>
